@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '¡Qué Bu! Postres · Tortas personalizadas en Casma',
+  description = 'Tortas personalizadas, fudge de olla y bocaditos hechos a mano por la chef Kaori Seperak en Casma. Haz tu pedido por WhatsApp.',
+} = Astro.props;
+
+const ogImage = new URL('/og-quebu.jpg', Astro.site ?? Astro.url).href;
+---
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#99B491" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content="¡Qué Bu! Postres — El placer hecho postre" />
+    <meta property="og:description" content="Tortas personalizadas y postres artesanales en Casma. Pide por WhatsApp." />
+    <meta property="og:image" content={ogImage} />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

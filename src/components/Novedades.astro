@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import floresAmarillas from '../assets/img/flores-amarillas.jpg';
+import carrito from '../assets/img/carrito-fiestas-casma.jpg';
+import taller from '../assets/img/taller-casma.jpg';
+import { waLink } from '../data/site';
+---
+<section class="section" id="novedades" aria-labelledby="news-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="news-title">Campañas y novedades</h2>
+      <p>En fechas especiales preparamos ediciones que vuelan. Estas son las más recientes.</p>
+    </div>
+    <div class="news">
+      <article class="news-feature">
+        <Image src={floresAmarillas} alt="Ramo de girasoles junto a un postre de Qué Bu" widths={[400, 512]} sizes="(max-width: 600px) 92vw, 460px" />
+        <div class="news-body">
+          <p class="news-date">Primavera · 21 de septiembre</p>
+          <h3>Flores amarillas</h3>
+          <p>Ramo de girasoles + postre(s) a elección, con nota dedicatoria. El detalle perfecto para tu persona favorita.</p>
+          <a class="btn btn-sun" href={waLink('Hola Qué Bu! Quiero info sobre su próxima campaña de regalos 💛🌻')} target="_blank" rel="noopener">Avísame de la próxima campaña</a>
+        </div>
+      </article>
+      <article class="news-card">
+        <Image src={carrito} alt="Carrito de Qué Bu Postres con iluminación cálida" widths={[361]} sizes="(max-width: 600px) 92vw, 360px" />
+        <div class="news-body">
+          <p class="news-date">Fiestas de Casma · julio</p>
+          <h3>Nuestro carrito en la Plaza de Armas</h3>
+          <p>Durante las fiestas nos encontraste frente a la Plaza. También puedes reservar antes o pedir por delivery.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <Image src={taller} alt="Asistentes del taller de pastelería en Casma" widths={[360]} sizes="(max-width: 600px) 92vw, 360px" />
+        <div class="news-body">
+          <p class="news-date">Talleres</p>
+          <h3>Primer taller de pastelería en Casma</h3>
+          <p>Un curso demostrativo de tortas artísticas, panadería y chocolatería. ¿Te apuntas a la siguiente fecha?</p>
+          <a class="text-link" href={waLink('Hola Qué Bu! Quiero apuntarme al próximo taller de pastelería 👩🏻‍🍳')} target="_blank" rel="noopener">Quiero ir al próximo taller</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

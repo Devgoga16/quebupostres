@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import chef from '../assets/img/chef-kaori.jpg';
+import tortaVintage from '../assets/img/torta-vintage.jpg';
+import { REDES } from '../data/site';
+---
+<section class="section about" id="nosotros" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <h2 id="about-title">Detrás de cada torta está Kaori</h2>
+      <p class="lead">¡Qué Bu! Postres nació en Casma de las manos de la chef pastelera <a href={REDES.chef} target="_blank" rel="noopener">@kaori.seperak</a>.</p>
+      <p>Trabajamos como dark kitchen: una cocina dedicada solo a preparar tus pedidos, con el tiempo y el cuidado que pide cada diseño. Por eso cada torta sale distinta, porque se piensa para la persona que la va a recibir.</p>
+      <p>Ser especiales para nuestros clientes es lo que más queremos.</p>
+    </div>
+    <div class="about-photos">
+      <Image class="about-a" src={chef} alt="La chef Kaori decorando una torta" widths={[300, 360]} sizes="(max-width: 860px) 50vw, 320px" />
+      <Image class="about-b" src={tortaVintage} alt="Torta vintage con decoración de buttercream de chocolate" widths={[300, 360]} sizes="(max-width: 860px) 50vw, 320px" />
+    </div>
+  </div>
+</section>

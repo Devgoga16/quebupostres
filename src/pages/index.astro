@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Catalogo from '../components/Catalogo.astro';
+import Personaliza from '../components/Personaliza.astro';
+import Novedades from '../components/Novedades.astro';
+import ComoPedir from '../components/ComoPedir.astro';
+import Nosotros from '../components/Nosotros.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Pedido from '../components/Pedido.astro';
+---
+<Layout>
+  <a class="skip" href="#catalogo">Ir al catálogo</a>
+  <Header />
+  <main>
+    <Hero />
+    <Catalogo />
+    <Personaliza />
+    <Novedades />
+    <ComoPedir />
+    <Nosotros />
+    <CtaFinal />
+  </main>
+  <Pedido />
+</Layout>

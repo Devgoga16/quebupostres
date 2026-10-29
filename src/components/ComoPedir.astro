@@ -1,0 +1,27 @@
+---
+import { WHATSAPP_VISIBLE } from '../data/site';
+
+// Secuencia real del pedido: por eso va numerada
+const pasos = [
+  { t: 'Elige', d: 'Arma tu pedido desde la vitrina o cuéntanos la torta que imaginas.' },
+  { t: 'Escríbenos', d: `Envía tu pedido al WhatsApp ${WHATSAPP_VISIBLE} con la fecha y una referencia.` },
+  { t: 'Confirma', d: 'Te pasamos la cotización y los medios de pago para separar tu fecha.' },
+  { t: 'Disfruta', d: 'Coordinamos el delivery o la entrega, y a celebrar.' },
+];
+---
+<section class="section how" id="como-pedir" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="how-title">Cómo pedir</h2>
+      <p>Somos una dark kitchen: todo se coordina por WhatsApp, sin colas ni complicaciones.</p>
+    </div>
+    <ol class="steps">
+      {pasos.map((p) => (
+        <li>
+          <h3>{p.t}</h3>
+          <p>{p.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

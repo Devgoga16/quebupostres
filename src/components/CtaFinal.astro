@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import logoWhite from '../assets/img/logo-white.png';
+import { waLink, MSG_PEDIDO, WHATSAPP_VISIBLE, REDES } from '../data/site';
+---
+<section class="final-cta" id="contacto" aria-labelledby="cta-title">
+  <svg class="cta-ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-40 120 C 300 40, 520 340, 860 260 S 1260 60, 1480 180" />
+  </svg>
+  <div class="wrap final-inner">
+    <Image src={logoWhite} alt="" class="final-logo" width={300} />
+    <h2 id="cta-title">¿Qué vas a celebrar?</h2>
+    <p>Escríbenos y armamos juntos el postre perfecto.</p>
+    <a class="btn btn-peach btn-lg" href={waLink(MSG_PEDIDO)} target="_blank" rel="noopener">Pedir por WhatsApp · {WHATSAPP_VISIBLE}</a>
+    <div class="socials">
+      <a href={REDES.instagram} target="_blank" rel="noopener">Instagram @quebupostres</a>
+      <a href={REDES.facebook} target="_blank" rel="noopener">Facebook Qué Bu Postres</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© {new Date().getFullYear()} ¡Qué Bu! Postres · Casma, Áncash</p>
+    <p>Hecho con mucho buttercream.</p>
+  </div>
+</footer>

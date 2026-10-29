@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import tortaPapelArroz from '../assets/img/torta-papel-arroz.jpg';
+import { waLink } from '../data/site';
+
+const datos = [
+  { t: 'La ocasión', d: 'Cumpleaños, aniversario, baby shower, sorpresa…' },
+  { t: 'Para cuántas personas', d: 'Así calculamos el tamaño ideal' },
+  { t: 'Una foto de referencia', d: 'O los colores y el estilo que te gustan' },
+  { t: 'Fecha y hora de entrega', d: 'Mientras antes, mejor para separar tu fecha' },
+];
+---
+<section class="section custom" id="personaliza" aria-labelledby="custom-title">
+  <div class="wrap custom-grid">
+    <figure class="custom-photo">
+      <Image src={tortaPapelArroz} alt="Torta rosada con pétalos hechos en papel de arroz" widths={[360, 481]} sizes="(max-width: 860px) 90vw, 480px" />
+      <figcaption>Pétalos en papel de arroz, empastados en buttercream</figcaption>
+    </figure>
+    <div class="custom-copy">
+      <h2 id="custom-title">Una torta con personalidad</h2>
+      <p class="lead">Trabajamos con buttercream, flores, técnicas en papel de arroz y diseños temáticos. Tú nos cuentas la idea; nosotros la volvemos torta.</p>
+      <h3>Para cotizar más rápido, cuéntanos:</h3>
+      <ul class="checklist">
+        {datos.map((x) => <li><span>{x.t}</span>{x.d}</li>)}
+      </ul>
+      <a class="btn btn-ink" href={waLink('Hola Qué Bu! Quiero una torta personalizada. Ocasión: … / Personas: … / Fecha: … (te envío una foto de referencia)')} target="_blank" rel="noopener">Enviar mi idea por WhatsApp</a>
+    </div>
+  </div>
+</section>

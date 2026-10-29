@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import WaIcon from './WaIcon.astro';
+import tortaFlores from '../assets/img/torta-flores.jpg';
+import tortaFresas from '../assets/img/torta-fresas.jpg';
+import { waLink } from '../data/site';
+---
+<!-- El verde salvia del logo, con la cinta del logo cruzando las tortas -->
+<section class="hero">
+  <svg class="hero-ribbon" viewBox="0 0 1440 640" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-40 610 C 320 650, 560 430, 800 480 S 1200 600, 1480 250" />
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker">Pastelería artesanal en Casma</p>
+      <h1 class="hero-title">El placer<br />hecho postre</h1>
+      <p class="hero-lead">Tortas personalizadas, fudge de olla y bocaditos hechos a mano por la chef Kaori Seperak. Cuéntanos qué celebras y la diseñamos contigo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-peach" href={waLink('Hola Qué Bu! Quiero cotizar una torta personalizada 🎂')} target="_blank" rel="noopener">
+          <WaIcon />
+          Cotizar mi torta
+        </a>
+        <a class="btn btn-ghost-light" href="#catalogo">Ver catálogo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <figure class="hero-photo hero-photo-main">
+        <Image src={tortaFlores} alt="Torta rectangular con flores naturales y mensaje Happy Birthday" widths={[360, 480]} sizes="(max-width: 860px) 60vw, 400px" loading="eager" fetchpriority="high" />
+      </figure>
+      <figure class="hero-photo hero-photo-side">
+        <Image src={tortaFresas} alt="Torta blanca con pétalos de buttercream y fresas" widths={[240, 480]} sizes="(max-width: 860px) 40vw, 260px" loading="eager" />
+      </figure>
+      <p class="hero-note"><strong>De las más pedidas</strong>Torta con flores, elegante y divertida</p>
+    </div>
+  </div>
+</section>
+
+<ul class="promise wrap" aria-label="Por qué pedir en Qué Bu">
+  <li><strong>Diseño a tu medida</strong>Cada torta se personaliza</li>
+  <li><strong>Pedidos por WhatsApp</strong>Al 970 752 530</li>
+  <li><strong>Delivery en Casma</strong>Coordinamos tu entrega</li>
+  <li><strong>Hecho a mano</strong>Por la chef Kaori Seperak</li>
+</ul>

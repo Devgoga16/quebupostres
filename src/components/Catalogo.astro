@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import { PRODUCTOS, CATEGORIAS } from '../data/productos';
+import { waLink } from '../data/site';
+---
+<section class="section" id="catalogo" aria-labelledby="cat-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="cat-title">Nuestra vitrina</h2>
+      <p>Elige lo que se te antoja, agrégalo a tu pedido y nos lo envías por WhatsApp en un solo mensaje.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar catálogo">
+      {CATEGORIAS.map((c, i) => (
+        <button type="button" class:list={['chip', { 'is-active': i === 0 }]} data-filter={c.id} aria-pressed={i === 0 ? 'true' : 'false'}>{c.label}</button>
+      ))}
+    </div>
+    <div class="catalog">
+      {PRODUCTOS.map((p) => (
+        <article class="product" data-cat={p.cat} data-product={p.id} data-nombre={p.nombre} data-precio={p.precio ?? 'A cotizar'}>
+          <div class="product-media">
+            <Image src={p.img} alt={p.nombre} widths={[280, 480]} sizes="(max-width: 600px) 46vw, (max-width: 1080px) 30vw, 280px" />
+            {p.badge && <span class="badge">{p.badge}</span>}
+          </div>
+          <div class="product-body">
+            <h3>{p.nombre}</h3>
+            <p>{p.desc}</p>
+            <div class="product-foot">
+              <span class="price">{p.precio ?? 'A cotizar'}</span>
+              <div class="product-actions">
+                <a class="icon-btn wa" href={waLink(`Hola Qué Bu! Quiero consultar por: ${p.nombre}`)} target="_blank" rel="noopener" aria-label={`Consultar ${p.nombre} por WhatsApp`}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20Z"/></svg>
+                </a>
+                <button type="button" class="btn btn-ink btn-sm" data-add={p.id}>Agregar</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="catalog-note">Los precios dependen del tamaño, las porciones y el diseño. Escríbenos y te cotizamos al toque.</p>
+  </div>
+</section>

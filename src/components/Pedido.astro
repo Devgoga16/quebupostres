@@ -1,0 +1,55 @@
+---
+import { waLink, MSG_PEDIDO } from '../data/site';
+
+const ocasiones = ['Cumpleaños', 'Aniversario', 'Baby shower', 'Sorpresa / regalo', 'Evento o reunión', 'Solo porque sí'];
+---
+<!-- Barra fija en móvil -->
+<div class="mobile-bar">
+  <button type="button" class="mb-cart" data-open-cart>Mi pedido <span data-cart-count>0</span></button>
+  <a class="btn btn-peach" href={waLink(MSG_PEDIDO)} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+</div>
+
+<!-- Drawer del pedido -->
+<div class="drawer-scrim" data-close-cart hidden></div>
+<aside class="drawer" id="pedido" aria-labelledby="drawer-title" aria-hidden="true" tabindex="-1">
+  <div class="drawer-head">
+    <h2 id="drawer-title">Mi pedido</h2>
+    <button type="button" class="icon-btn" data-close-cart aria-label="Cerrar pedido">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <ul class="cart-list" data-cart-list></ul>
+    <div class="cart-empty" data-cart-empty>
+      <p>Tu pedido está vacío.</p>
+      <button type="button" class="btn btn-ink btn-sm" data-close-cart data-goto="#catalogo">Ver la vitrina</button>
+    </div>
+    <form class="order-form" data-order-form>
+      <label>Tu nombre
+        <input name="nombre" autocomplete="given-name" placeholder="Ej. Lucía" />
+      </label>
+      <div class="row">
+        <label>Fecha de entrega
+          <input name="fecha" type="date" />
+        </label>
+        <label>Ocasión
+          <select name="ocasion">
+            <option value="">Elige una</option>
+            {ocasiones.map((o) => <option>{o}</option>)}
+          </select>
+        </label>
+      </div>
+      <label>Detalles
+        <textarea name="detalles" rows="3" placeholder="Personas, colores, mensaje en la torta, sabor…"></textarea>
+      </label>
+      <button type="submit" class="btn btn-peach btn-block">Enviar pedido por WhatsApp</button>
+      <p class="form-help">Se abrirá WhatsApp con tu pedido listo. Te respondemos con la cotización.</p>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script>
+  import '../scripts/pedido';
+</script>

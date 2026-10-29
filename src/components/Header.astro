@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import logoInk from '../assets/img/logo-ink.png';
+import { waLink, MSG_PEDIDO } from '../data/site';
+
+const nav = [
+  { href: '#catalogo', label: 'Catálogo' },
+  { href: '#personaliza', label: 'Tortas a tu medida' },
+  { href: '#novedades', label: 'Novedades' },
+  { href: '#como-pedir', label: 'Cómo pedir' },
+  { href: '#nosotros', label: 'Nosotros' },
+];
+---
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="¡Qué Bu! Postres, inicio">
+      <Image src={logoInk} alt="" width={116} loading="eager" />
+      <span class="brand-name">¡Qué Bu!<small>Postres</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" type="button" data-open-cart aria-label="Ver mi pedido">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+      <a class="btn btn-peach btn-sm hide-mobile" href={waLink(MSG_PEDIDO)} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+</header>
